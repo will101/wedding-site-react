@@ -2,8 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Container from "./Container";
 
+//TODO:
+//When app opens, it opens on blank page
+
+
 //Run 'git push heroku-staging' after making changes to deploy it to heroku 
 export default function Home() {
+    console.log("home");
     return (
         <Container>
             <div className='pt-2 font-roboto font-semibold'>
@@ -19,7 +24,7 @@ export default function Home() {
                     {' '}and  <Link className='hover:underline' to='gallery'>photos</Link> and hope we will be able to see you all again soon.</p>
                 <p>Love from Will and Emily x</p>
             </div>
-        </Container >
+        </Container>
     );
 }
 
