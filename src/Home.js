@@ -1,13 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Container from "./Container";
+import sky from "./assets/images/home/nessgardens001c.jpg";
 
-//each push will deploy it here: https://vercel.com/will101/wedding-site-react
-//TODO: Images aren't displaying properly on Vercel
 export default function Home() {
-    console.log("home");
     return (
-        <Container>
+        <Container bgImage={sky}>
             <div className='pt-2 font-roboto font-semibold'>
                 <h1 className="text-black text-xl font-fatface pb-2">Will & Emily - Our Story</h1>
                 <p className='pb-4'>We first met when we were in university, on Valentines day 2015, when Emily made her first visit to Aberystwyth and Finn introduced
