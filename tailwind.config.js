@@ -7,6 +7,9 @@ module.exports = {
       'roboto': ['Roboto Mono', "monospace"],
       'fatface': ['Abril Fatface', 'cursive']
     },
+    maxWidth: {
+      '7xl': '88rem'
+    },
     extend: {
       backgroundImage: theme => ({
         'bw-umbrella': "url('../assets/images/home/nessgardens_011.jpg')",
