@@ -1,5 +1,5 @@
-import PageLayout from "./PageLayout";
 import Home from "./Home";
+import PageLayout from "./PageLayout";
 
 function App() {
   return (
