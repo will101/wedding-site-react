@@ -2,9 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Container from "./Container";
 
-//TODO:
-// Make navbar responsive, and check rest of site is
-// Package up and figure out how to host it
+//Run 'git push heroku-staging' after making changes to deploy it to heroku 
 export default function Home() {
     return (
         <Container>
