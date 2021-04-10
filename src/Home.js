@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Container from "./Container";
 
 //each push will deploy it here: https://vercel.com/will101/wedding-site-react
+//TODO: Images aren't displaying properly on Vercel
 export default function Home() {
     console.log("home");
     return (
