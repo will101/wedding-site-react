@@ -16,13 +16,14 @@ module.exports = {
         'colour-umbrella': "url('../assets/images/home/nessgardens_009.jpg')",
         'ring': "url('../assets/images/home/nessgardens_110.jpg')",
         'sky': "url('../assets/images/home/nessgardens_001c.jpg')",
-        'gallery': "url('../assets/images/home/nessgardens_053.jpg')",
+        'gallery': "url('../assets/images/home/nessgardens_053c.jpg')",
+        'video': "url('../assets/images/home/nessgardens_089.jpg')",
       })
     },
   },
   variants: {
     extend: {
-      backgroundColor: ['active']
+
     },
   },
   plugins: [],

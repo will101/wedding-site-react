@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
-export default function Container({ bgImage, children }) {
+export default function Container({ bgImage, bgClasses, children }) {
+    const currentPath = useHistory()?.location?.pathname;
     return (
-        <div className={`${bgImage ? 'bg-' + bgImage : 'bg-sky'} bg-cover`}>
+        <div className={`${bgImage ? 'bg-' + bgImage : 'bg-sky'} bg-cover ${bgClasses ? bgClasses : ''}`}>
             <nav className="bg-transparent">
                 <div className="max-w-7xl px-2 sm:px-6 lg:px-8  border-b-2 border-black mx-auto ml-64">
                     <div className="relative flex items-center justify-between h-16 right-16">
@@ -15,23 +16,25 @@ export default function Container({ bgImage, children }) {
                         <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start font-medium">
                             <div className="hidden sm:block sm:ml-6">
                                 <div className="flex space-x-4 px-2 py-2 font-roboto-condensed text-xl">
-                                    <Link to="/home" className="hover:underline active:border-b-2" aria-current="page">Home</Link>
-                                    <Link to='/gallery' className='hover:underline'>Gallery</Link>
-                                    <Link to='/video' className="hover:underline">Video</Link>
+                                    <Link to="/home" className={`hover:underline ${isCurrent(currentPath, 'home')}`} >Home</Link>
+                                    <Link to='/gallery' className={`hover:underline ${isCurrent(currentPath, 'gallery')}`}>Gallery</Link>
+                                    <Link to='/video' className={`hover:underline ${isCurrent(currentPath, 'video')}`}>Video</Link>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </nav>
-
-
-
             <div className='h-screen'>
-                <div className='container mx-auto px-16'>
+                <div className='container mx-auto sm:px-4 xl:px-16'>
                     {children}
                 </div>
             </div>
         </div >
     )
+}
+
+function isCurrent(currentPath, linkName) {
+    const formatted = currentPath.replace("/", '');
+    return formatted === linkName ? 'active' : ''
 }
