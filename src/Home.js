@@ -2,10 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Container from "./Container";
 
-//TODO:
-//When app opens, it opens on blank page
-
-
 //Run 'git push heroku-staging' after making changes to deploy it to heroku 
 export default function Home() {
     console.log("home");

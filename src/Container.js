@@ -7,10 +7,10 @@ export default function Container({ bgImage, bgClasses, children }) {
             <nav className="bg-transparent">
                 <div className="border-b-2 border-black">
                     <div className="flex items-center justify-between h-16 ">
-                        <div className=" font-medium mx-auto">
+                        <div className="font-medium mx-auto">
                             <div className="sm:block sm:ml-6">
                                 <div className="flex space-x-4 py-2 font-roboto-condensed text-xl">
-                                    <Link to="/home" className={`hover:underline ${isCurrent(currentPath, 'home')}`} >Home</Link>
+                                    <Link to="/home" className={`hover:underline ${isCurrent(currentPath, 'home')} ${isCurrent(currentPath, '')}`}>Home</Link>
                                     <Link to='/gallery' className={`hover:underline ${isCurrent(currentPath, 'gallery')}`}>Gallery</Link>
                                     <Link to='/video' className={`hover:underline ${isCurrent(currentPath, 'video')}`}>Video</Link>
                                 </div>

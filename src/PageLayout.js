@@ -8,6 +8,7 @@ export default function PageLayout() {
     return (
         <BrowserRouter>
             <Switch>
+                <Route exact path="/" component={Home} />
                 <Route path="/home" component={Home} />
                 <Route path='/gallery' component={Gallery} />
                 <Route path="/video" component={Video} />
