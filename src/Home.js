@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import Container from "./Container";
 import sky from "./assets/images/home/nessgardens001c.jpg";
 
-//TODO: Update Gallery with pics from wedding
-// Make responsive for mobile if you really have to!
+//Each commit deploys here: https://vercel.com/will101/wedding-site-react
 export default function Home() {
     return (
         <Container bgImage={sky}>

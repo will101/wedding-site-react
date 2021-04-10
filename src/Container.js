@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 export default function Container({ bgImage, bgClasses, children }) {
     const currentPath = useHistory()?.location?.pathname;
     return (
-        <div className={` ${bgClasses ? bgClasses : ''} h-screen bg-cover`} style={{ backgroundImage: `url(${bgImage})` }}>
+        <div className={` ${bgClasses ? bgClasses : ''} h-screen bg-cover overflow-scroll lg:overflow-hidden`} style={{ backgroundImage: `url(${bgImage})` }}>
             <nav className="bg-transparent">
                 <div className="border-b-2 border-black">
                     <div className="flex items-center justify-between h-16 ">
