@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Container from "./Container";
 
-//Run 'git push heroku-staging' after making changes to deploy it to heroku 
+//each push will deploy it here: https://vercel.com/will101/wedding-site-react
 export default function Home() {
     console.log("home");
     return (

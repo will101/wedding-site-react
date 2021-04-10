@@ -9,9 +9,6 @@ module.exports = {
     },
     extend: {
       backgroundImage: theme => ({
-        'bw-umbrella': "url('../assets/images/home/nessgardens_011.jpg')",
-        'colour-umbrella': "url('../assets/images/home/nessgardens_009.jpg')",
-        'ring': "url('../assets/images/home/nessgardens_110.jpg')",
         'sky': "url('../assets/images/home/nessgardens_001c.jpg')",
         'gallery': "url('../assets/images/home/nessgardens_053c.jpg')",
         'video': "url('../assets/images/home/nessgardens_089.jpg')",
