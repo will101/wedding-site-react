@@ -4,6 +4,7 @@ import Container from "./Container";
 import sky from "./assets/images/home/nessgardens001c.jpg";
 
 //Each commit deploys here: https://vercel.com/will101/wedding-site-react
+//When you're ready for a deployment, merge development into master. And it will automatically get deployed
 export default function Home() {
     return (
         <Container bgImage={sky}>
