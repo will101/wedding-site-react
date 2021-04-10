@@ -3,11 +3,8 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      'charm': ['Charm', 'Serif'],
-      'open-sans': ['Open Sans', 'serif'],
       'roboto-condensed': ["Roboto Condensed", "sans-serif"],
       'roboto': ['Roboto Mono', "monospace"],
-      'zilla': ['Zilla Slab Highlight', "cursive"],
       'fatface': ['Abril Fatface', 'cursive']
     },
     extend: {
@@ -22,9 +19,7 @@ module.exports = {
     },
   },
   variants: {
-    extend: {
-
-    },
+    extend: {},
   },
   plugins: [],
 }

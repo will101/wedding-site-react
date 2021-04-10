@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Container from "./Container";
 
 //TODO:
-// Sort p wording out
 // Make navbar responsive, and check rest of site is
 // Package up and figure out how to host it
 export default function Home() {
