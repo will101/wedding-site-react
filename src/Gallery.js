@@ -8,7 +8,7 @@ const importAll = (r) => {
     return r.keys().map(r);
 }
 
-//Make sure to compress jpegs so they load quicker: https://compressjpeg.com/
+//Make sure to compress jpegs so they load quicker: https://compressjpeg.com/, then compress here for even smaller!
 function getImages() {
     const importedImages = importAll(require.context('./assets/images/engagement', false, /\.(png|jpe?g|svg)$/));
     const images = importedImages.map((x, i) => {
