@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import ImageGallery from "react-image-gallery";
 import Container from "./Container";
-import gallery from "./assets/images/bgImages/nessgardens053c-min.jpg";
+import gallery from "./assets/images/bgImagesc/nessgardens053c-min.jpg";
 import gif from "./assets/gifs/loading.gif";
 
 const importAll = (r) => {
     return r.keys().map(r);
 }
 
-//Make sure to compress jpegs so they load quicker: https://compressjpeg.com/, then compress here for even smaller!
+//Make sure to compress jpegs here, and reduce size (if needed) --> https://www.reduceimages.com/
 function getImages() {
     const importedImages = importAll(require.context('./assets/images/engagement', false, /\.(png|jpe?g|svg)$/));
     const images = importedImages.map((x, i) => {

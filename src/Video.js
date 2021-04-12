@@ -1,6 +1,6 @@
 import React from "react";
 import Container from "./Container";
-import videoBg from "./assets/images/bgImages/nessgardens089-min.jpg";
+import videoBg from "./assets/images/bgImagesc/nessgardens089-min.jpg";
 
 export default function Video() {
     return (
