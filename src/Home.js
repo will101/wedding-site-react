@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Container from "./Container";
-import sky from "./assets/images/bgImagesc/nessgardens001c-min.jpg";
+import sky from "./assets/images/bgImages/nessgardens001c-min.jpg";
 
 //Each commit deploys here: https://vercel.com/will101/wedding-site-react
 //When you're ready for a deployment, merge development into master. And it will automatically get deployed

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ImageGallery from "react-image-gallery";
 import Container from "./Container";
-import gallery from "./assets/images/bgImagesc/nessgardens053c-min.jpg";
+import gallery from "./assets/images/bgImages/nessgardens053c-min.jpg";
 import gif from "./assets/gifs/loading.gif";
 
 const importAll = (r) => {
