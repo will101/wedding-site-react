@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import ImageGallery from "react-image-gallery";
 import Container from "./Container";
-import gallery from "./assets/images/bgImages/nessgardens053c-min.jpg";
+//import gallery from "./assets/images/bgImages/nessgardens053c-min.jpg";
 import gif from "./assets/gifs/loading.gif";
 
 const importAll = (r) => {
     return r.keys().map(r);
 }
 
+//https://imgbb.com/ - for bg images
 //Make sure to compress jpegs here, and reduce size (if needed) --> https://www.reduceimages.com/
 function getImages() {
     const importedImages = importAll(require.context('./assets/images/engagement', false, /\.(png|jpe?g|svg)$/));
@@ -30,7 +31,7 @@ export default function Gallery() {
 
     return (
         <>
-            <Container bgImage={gallery} bgClasses='bg-left'>
+            <Container bgImage='https://i.ibb.co/gg7Rcj9/nessgardens053c-min.jpg' bgClasses='bg-left'>
                 <h1 className="text-black text-5xl pt-2 mb-6 font-fatface">Image Gallery</h1>
                 <div className='pt-6'>
                     {showLoadingGif ? (
