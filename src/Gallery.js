@@ -8,7 +8,7 @@ const importAll = (r) => {
     return r.keys().map(r);
 }
 
-//https://imgbb.com/ - for bg images
+//https://imgbb.com/ - for bg images. Have put them in a private folder. People can only see them with the link
 //Make sure to compress jpegs here, and reduce size (if needed) --> https://www.reduceimages.com/
 function getImages() {
     const importedImages = importAll(require.context('./assets/images/engagement', false, /\.(png|jpe?g|svg)$/));
