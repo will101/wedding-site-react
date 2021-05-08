@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 export default function Container({ bgImage, bgClasses, children }) {
     const currentPath = useHistory()?.location?.pathname;
     return (
-        <div className={` ${bgClasses ? bgClasses : ''} h-screen bg-cover overflow-scroll lg:overflow-hidden`} style={{ backgroundImage: `url(${bgImage})` }}>
+        <div className={`bg-${bgImage} ${bgClasses ? bgClasses : ''} h-screen bg-cover overflow-scroll lg:overflow-hidden`}>
             <nav className="bg-transparent">
                 <div className="border-b-2 border-black">
                     <div className="flex items-center justify-between h-16 ">
@@ -13,6 +13,8 @@ export default function Container({ bgImage, bgClasses, children }) {
                                     <Link to="/home" className={`hover:underline ${isCurrent(currentPath, 'home')} ${isCurrent(currentPath, '')}`}>Home</Link>
                                     <Link to='/gallery' className={`hover:underline ${isCurrent(currentPath, 'gallery')}`}>Gallery</Link>
                                     <Link to='/video' className={`hover:underline ${isCurrent(currentPath, 'video')}`}>Video</Link>
+                                    <Link to="/upload" className={`hover:underline ${isCurrent(currentPath, 'upload')}`}>Upload</Link>
+                                    <Link to="/comment" className={`hover:underline ${isCurrent(currentPath, 'comment')}`}>Comment</Link>
                                 </div>
                             </div>
                         </div>

@@ -31,7 +31,7 @@ export default function Gallery() {
 
     return (
         <>
-            <Container bgImage='https://i.ibb.co/gg7Rcj9/nessgardens053c-min.jpg' bgClasses='bg-left'>
+            <Container bgImage='gallery' bgClasses='bg-left'>
                 <h1 className="text-black text-5xl pt-2 mb-6 font-fatface">Image Gallery</h1>
                 <div className='pt-6'>
                     {showLoadingGif ? (

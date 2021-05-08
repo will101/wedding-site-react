@@ -4,7 +4,7 @@ import Container from "./Container";
 
 export default function Video() {
     return (
-        <Container bgImage='https://i.ibb.co/vc395db/nessgardens089-min.jpg'>
+        <Container bgImage='video'>
             <h1 className="text-black text-5xl pt-2 mb-6 font-fatface">Wedding Video</h1>
             <div className='pt-6 '>
                 {/* <video className='mx-auto' height={600} width={1000} src={''} controls /> */}

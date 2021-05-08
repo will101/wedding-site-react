@@ -8,7 +8,7 @@ import Container from "./Container";
 //git checkout master, git merge development, then commit changes
 export default function Home() {
     return (
-        <Container bgImage='https://i.ibb.co/34ck9zN/nessgardens001c-min.jpg' >
+        <Container bgImage='home' >
             <div className='pt-2 font-roboto font-semibold'>
                 <h1 className="text-black text-xl font-fatface pb-2">Will & Emily - Our Story</h1>
                 <p className='pb-4'>We first met when we were in university, on Valentines day 2015, when Emily made her first visit to Aberystwyth and Finn introduced
