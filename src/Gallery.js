@@ -23,9 +23,23 @@ export default function Gallery() {
     const [showLoadingGif, setLoadingGif] = useState(true);
     const images = getImages();
 
-    if (images && images.length > 0 && showLoadingGif === true) {
-        setLoadingGif(false);
-    }
+
+    //TODO: Add better loading gif - somehow detect when all assets loaded, then display gallery etc.
+    //https://stackoverflow.com/questions/11071314/javascript-execute-after-all-images-have-loaded
+    Promise.all(Array.from(document.images).map(img => {
+        if (img.complete)
+            return Promise.resolve(img.naturalHeight !== 0);
+        return new Promise(resolve => {
+            img.addEventListener('load', () => resolve(true));
+            img.addEventListener('error', () => resolve(false));
+        });
+    })).then(results => {
+        if (results.every(res => res)) {
+            if (images && images.length > 0 && showLoadingGif === true) {
+                setLoadingGif(false);
+            }
+        }
+    });
 
     return (
         <>
