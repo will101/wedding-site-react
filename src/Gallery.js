@@ -9,7 +9,7 @@ const importAll = (r) => {
 
 function getImages() {
     const importedImages = importAll(require.context('./assets/images/engagement', false, /\.(png|jpe?g|svg)$/));
-    const images = importedImages.map((x, i) => {
+    const images = importedImages.map(x => {
         return {
             original: x.default,
             thumbnail: x.default
@@ -22,7 +22,7 @@ export default function Gallery() {
     const [showLoadingGif, setLoadingGif] = useState(true);
     const images = getImages();
 
-    if (images && showLoadingGif === true) {
+    if (images && images.length > 0 && showLoadingGif === true) {
         setLoadingGif(false);
     }
 
@@ -32,9 +32,9 @@ export default function Gallery() {
                 <h1 className="text-black text-5xl pt-2 mb-6 font-fatface">Image Gallery</h1>
                 <div className='pt-6'>
                     {showLoadingGif ? (
-                        <div className='font-roboto-condensed font-semibold text-2xl mx-auto w-60'>
-                            <div><img alt="" className='w-auto h-24' src={gif} />
-                                <span>Loading Images...</span></div>
+                        <div className='bg-white font-roboto-condensed font-semibold text-2xl mx-auto w-60'>
+                            <div className="mx-auto"><img alt="" className='w-auto h-24' src={gif} />
+                                <span className="p-8">Loading Images...</span></div>
                         </div>
                     ) : (
                         <ImageGallery showBullets={false} items={images} lazyLoad={false} showThumbnails={false} showFullscreenButton={false} showPlayButton={false} />
