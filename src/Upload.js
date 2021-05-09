@@ -4,6 +4,7 @@ import "firebase/storage";
 import { useForm } from "react-hook-form";
 import { useToasts } from 'react-toast-notifications';
 import Container from "./Container";
+import image from "./assets/images/bgImages/upload.jpg";
 
 //TODO: Add some validation to the website - get them to enter date of wedding
 // Dont use yup validation here as it breaks the form
@@ -40,7 +41,7 @@ export default function Upload() {
     }
 
     return (
-        <Container bgImage='upload'>
+        <Container bgImage={image}>
             <h1 className="text-black text-5xl pt-2 mb-6 font-fatface">Upload Your Images</h1>
             <div className="bg-white w-1/2 p-4 mx-auto rounded-md">
                 <div className="">

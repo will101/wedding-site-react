@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ImageGallery from "react-image-gallery";
 import Container from "./Container";
 import gif from "./assets/gifs/loading.gif";
+import image from "./assets/images/bgImages/nessgardens053c-min.jpg";
 
 const importAll = (r) => {
     return r.keys().map(r);
@@ -28,7 +29,7 @@ export default function Gallery() {
 
     return (
         <>
-            <Container bgImage='gallery' bgClasses='bg-left'>
+            <Container bgImage={image} bgClasses='bg-left'>
                 <h1 className="text-black text-5xl pt-2 mb-6 font-fatface">Image Gallery</h1>
                 <div className='pt-6'>
                     {showLoadingGif ? (

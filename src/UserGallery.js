@@ -3,6 +3,7 @@ import Container from "./Container";
 import firebase from "firebase/app";
 import "firebase/storage";
 import ImageGallery from "react-image-gallery";
+import image from "./assets/images/bgImages/upload.jpg";
 
 export default function UserGallery() {
     const [images, setImages] = useState([]);
@@ -26,7 +27,7 @@ export default function UserGallery() {
     }, []);
 
     return (
-        <Container bgImage="upload">
+        <Container bgImage={image}>
             <h1 className="text-black text-5xl pt-2 mb-6 font-fatface">Images users have uploaded</h1>
             {images && images.length > 0 ? (
                 <ImageGallery showBullets={false} items={images} lazyLoad={false} showThumbnails={false} showFullscreenButton={false} showPlayButton={false} />
