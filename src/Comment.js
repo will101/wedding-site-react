@@ -1,10 +1,10 @@
 import React from "react";
 import Container from "./Container";
 
-//TODO: Use html localStorage to store these instead of having an api --> https://www.w3schools.com/html/html5_webstorage.asp
+//TODO: Create db in firebase and store comments there
 export default function Comment() {
     return (
-        <Container>
+        <Container bgImage='upload'>
             <h1>Comments</h1>
         </Container>
     )

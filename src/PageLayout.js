@@ -5,6 +5,7 @@ import Home from "./Home";
 import Video from "./Video";
 import Upload from "./Upload";
 import Comment from "./Comment";
+import UserGallery from "./UserGallery";
 
 export default function PageLayout() {
     return (
@@ -16,6 +17,7 @@ export default function PageLayout() {
                 <Route path="/video" component={Video} />
                 <Route path="/upload" component={Upload} />
                 <Route path="/comment" component={Comment} />
+                <Route path="/userGallery" component={UserGallery} />
             </Switch>
         </BrowserRouter>
     )
