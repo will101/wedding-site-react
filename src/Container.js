@@ -12,10 +12,9 @@ export default function Container({ bgImage, bgClasses, children }) {
                                 <div className="flex space-x-4 py-2 font-roboto-condensed text-xl">
                                     <Link to="/home" className={`hover:underline ${isCurrent(currentPath, 'home')} ${isCurrent(currentPath, '')}`}>Home</Link>
                                     <Link to='/gallery' className={`hover:underline ${isCurrent(currentPath, 'gallery')}`}>Gallery</Link>
-                                    <Link to='/video' className={`hover:underline ${isCurrent(currentPath, 'video')}`}>Video</Link>
                                     <Link to="/upload" className={`hover:underline ${isCurrent(currentPath, 'upload')}`}>Upload</Link>
                                     <Link to="/userGallery" className={`hover:underline ${isCurrent(currentPath, 'userGallery')}`}>User gallery</Link>
-                                    <Link to="/comment" className={`hover:underline ${isCurrent(currentPath, 'comment')}`}>Comment</Link>
+                                    <Link to='/video' className={`hover:underline ${isCurrent(currentPath, 'video')}`}>Video</Link>
                                 </div>
                             </div>
                         </div>

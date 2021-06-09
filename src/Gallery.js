@@ -1,57 +1,67 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ImageGallery from "react-image-gallery";
 import Container from "./Container";
 import gif from "./assets/gifs/loading.gif";
 import image from "./assets/images/bgImages/nessgardens053c-min.jpg";
-
-const importAll = (r) => {
-    return r.keys().map(r);
-}
-
-function getImages() {
-    const importedImages = importAll(require.context('./assets/images/engagement', false, /\.(png|jpe?g|svg)$/));
-    const images = importedImages.map(x => {
-        return {
-            original: x.default,
-            thumbnail: x.default
-        }
-    });
-    return images;
-}
+import { useToasts } from 'react-toast-notifications';
+import "firebase/storage";
+import firebase from "firebase/app";
 
 export default function Gallery() {
-    const [showLoadingGif, setLoadingGif] = useState(true);
-    const images = getImages();
+    const [images, setImages] = useState([]);
+    const [showLoadingGif, setLoadingGifVisibility] = useState(false);
+    const { addToast } = useToasts();
 
-    //TODO: Add better loading gif - somehow detect when all assets loaded, then display gallery etc.
-    //https://stackoverflow.com/questions/11071314/javascript-execute-after-all-images-have-loaded
-    Promise.all(Array.from(document.images).map(img => {
-        if (img.complete)
-            return Promise.resolve(img.naturalHeight !== 0);
-        return new Promise(resolve => {
-            img.addEventListener('load', () => resolve(true));
-            img.addEventListener('error', () => resolve(false));
-        });
-    })).then(results => {
-        if (results.every(res => res)) {
-            if (images && images.length > 0 && showLoadingGif === true) {
-                setLoadingGif(false);
+    useEffect(() => {
+        async function getImages() {
+            try {
+                const ref = firebase.storage().ref("/PreweddingImages");
+                const images = await ref.listAll();
+                const promises = images.items.map((x) => {
+                    return x.getDownloadURL();
+                });
+                Promise.all(promises).then(response => {
+                    setImages(response.map(image => {
+                        return {
+                            original: image,
+                            thumbnail: image
+                        }
+                    }));
+                });
+                setLoadingGifVisibility(false);
+            }
+            catch (err) {
+                setLoadingGifVisibility(false);
+                console.error(err);
+                addToast('Error fetching user uploaded images', {
+                    appearance: 'error',
+                    autoDismiss: 'true',
+                });
             }
         }
-    });
+        getImages();
+        setLoadingGifVisibility(true);
+        //addToast doesn't need to be tracked
+        //eslint-disable-next-line
+    }, []);
 
     return (
         <>
             <Container bgImage={image} bgClasses='bg-left'>
                 <h1 className="text-black text-5xl pt-2 mb-6 font-fatface">Image Gallery</h1>
+                <h2 className="text-black text-md pt-2 mb-6 font-roboto">Images from the photographers will be uploaded here after the wedding. Below are some from our pre-wedding shoot.</h2>
                 <div className='pt-6'>
                     {showLoadingGif ? (
-                        <div className='bg-white font-roboto-condensed font-semibold text-2xl mx-auto w-60'>
+                        <div className='bg-gray-200 font-roboto-condensed font-semibold text-2xl mx-auto w-60'>
                             <div className="mx-auto"><img alt="" className='w-auto h-24' src={gif} />
                                 <span className="p-8">Loading Images...</span></div>
                         </div>
-                    ) : (
+                    ) : <></>}
+
+                    {images && images.length > 0 ? (
                         <ImageGallery showBullets={false} items={images} lazyLoad={false} showThumbnails={false} showFullscreenButton={false} showPlayButton={false} />
+                    ) : (
+                        <p>No images found</p>
                     )}
                 </div>
             </Container>
