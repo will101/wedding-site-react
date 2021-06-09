@@ -55,7 +55,7 @@ export default function Upload() {
                 }
                 addToast(`Success: ${values?.file?.length} ${values?.file?.length > 1 ? 'images' : 'image'} uploaded`, {
                     appearance: 'success',
-                    autoDismiss: 'true',
+                    autoDismiss: 'true'
                 });
                 reset();
             }

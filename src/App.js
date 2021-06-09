@@ -20,7 +20,7 @@ function App() {
     firebase.initializeApp(firebaseConfig);
   }
   return (
-    <ToastProvider>
+    <ToastProvider placement="top-center" autoDismiss={true} autoDismissTimeout={10000}>
       <PageLayout>
         <Home />
       </PageLayout>

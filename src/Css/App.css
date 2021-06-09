@@ -5,3 +5,7 @@
 .active {
   border-bottom: 2px solid black;
 }
+
+.css-18gu508-Content{
+  min-height:100px !important;
+}

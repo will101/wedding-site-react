@@ -7,6 +7,10 @@ import { useToasts } from 'react-toast-notifications';
 import "firebase/storage";
 import firebase from "firebase/app";
 
+//TODO: 
+// - Make success message on user upload more obvious
+// - Investigate chrome issue/uploading on mobile issue?
+// - Make all pages look bearable on mobiles
 export default function Gallery() {
     const [images, setImages] = useState([]);
     const [showLoadingGif, setLoadingGifVisibility] = useState(false);
