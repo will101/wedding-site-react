@@ -73,15 +73,15 @@ export default function Upload() {
     return (
         <Container bgImage={image}>
             <h1 className="text-black text-5xl pt-2 mb-6 font-fatface">Upload Your Images</h1>
-            <div className="bg-white w-1/2 p-4 mx-auto rounded-md">
+            <div className="bg-white md-100 lg:w-2/3 p-4 mx-auto rounded-md">
                 <div className="">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div>
-                            <label className="mr-6">Upload up to 10 images: </label>
+                            <label className="mr-6 font-bold">Upload up to 10 images: </label>
                             <input className="" type="file" name="file" {...register("file")} multiple={true} />
                         </div>
                         <div>
-                            <label className="mr-6">Enter the date of the wedding</label>
+                            <label className="mr-6 font-bold">Enter the date of the wedding</label>
                             <input type="date" name="date" {...register("date")} />
                             {showError ? (
                                 <div className="text-red-600">Wrong date entered or no files are attached</div>

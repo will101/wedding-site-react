@@ -9,8 +9,8 @@ import image from "./assets/images/bgImages/nessgardens001c-min.jpg";
 export default function Home() {
     return (
         <Container bgImage={image} >
-            <div className='pt-2 font-roboto font-semibold'>
-                <h1 className="text-black text-xl font-fatface pb-2">Will & Emily - Our Story</h1>
+            <div className='py-4 font-roboto font-semibold'>
+                <h1 className="text-black text-xl font-fatface pb-2">Our Story</h1>
                 <p className='pb-4'>We first met when we were in university, on Valentines day 2015, when Emily made her first visit to Aberystwyth and Finn introduced
                 us thinking we would be a perfect match!</p>
                 <p className='pb-4'>We were on holiday in Amsterdam in June 2019, when Will proposed, down on one knee, on the Magere Brug. We were excited to make wedding plans and organized our big family

@@ -3,10 +3,6 @@ import PageLayout from "./PageLayout";
 import firebase from "firebase/app";
 import { ToastProvider } from "react-toast-notifications";
 
-//TODO:
-// - Upload page: Somehow add some validation for uploading images --> Using yup will break page. Just have an onChange to show/hide the form?
-// - Add a better loading gif strategy for gallery and userGallery pages. Need to wait for assets to load before doing
-// - Don't stress about this one too much --> Get comments page working: Users need to be able to upload a comment and view comments by others
 function App() {
   const firebaseConfig = {
     apiKey: "AIzaSyAU_eowjy53PzVgPFqKGPwsqePwG0ayhf4",
