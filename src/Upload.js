@@ -73,7 +73,7 @@ export default function Upload() {
                         return;
                     }
                 }
-                addToast(`Success: ${values?.file?.length} ${values?.file?.length > 1 ? 'images' : 'image'} uploaded`, {
+                addToast(`Success: ${values?.file?.length} ${values?.file?.length > 1 ? 'images' : 'image'} uploaded. They will appear on the user gallery page in a few minutes.`, {
                     appearance: 'success',
                     autoDismiss: 'true'
                 });
