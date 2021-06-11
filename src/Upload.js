@@ -9,6 +9,7 @@ import moment from "moment";
 import imageCompression from 'browser-image-compression';
 
 export default function Upload() {
+    const [errorMessage, setErrorMessage] = useState();
     const [showError, toggleErrorVisibility] = useState(false);
     const { handleSubmit, register, reset } = useForm();
     const { addToast } = useToasts();
@@ -20,7 +21,11 @@ export default function Upload() {
     of that month. In addition, Google Cloud features are not available when using the Spark plan. 
     */
     const onSubmit = (values) => {
-        toggleErrorVisibility(false); //clear error on submission
+        //clear errors on submission
+        toggleErrorVisibility(false);
+        setErrorMessage("");
+
+        //check number of images is 10
         if (values?.file.length > 10) {
             addToast("You can only upload 10 images at a time", {
                 appearance: 'warning',
@@ -28,21 +33,35 @@ export default function Upload() {
             });
             return;
         }
+
+        //check file is an image, and the user entered the correct date
         const validDate = moment(values?.date).isSame('June 12,2021');
-        if (values && values?.file?.length > 0 && validDate === true)
+        const validFileTypes = ['image/jpeg', 'image/png'];
+        const fileListAsArray = [...values?.file]; //convert filelist to proper normal js array
+        const filesAreValid = fileListAsArray && fileListAsArray.length > 0 && fileListAsArray.filter(x => validFileTypes.includes(x.type))?.length === values?.file?.length;
+        if (filesAreValid === false) {
+            toggleErrorVisibility(true);
+            setErrorMessage("Invalid file type. File must be a png or jpeg");
+            addToast("Invalid file type. File must be a png or jpeg", {
+                appearance: 'error',
+                autoDismiss: 'true',
+            });
+            return;
+        }
+
+        if (values && values?.file?.length > 0 && validDate === true && filesAreValid === true)
             try {
                 for (let i = 0; i < values?.file.length; i++) {
                     let ref = firebase.storage().ref("/UploadedImages/" + values?.file[i].name);
-
-                    //compress the image here to try help loading of images on gallery
                     const options = {
                         maxSizeMB: 1,
                         maxWidthOrHeight: 1920,
                         useWebWorker: true
                     }
                     try {
+                        //compress the image here to try help loading of images on gallery
                         imageCompression(values.file[i], options).then(response => {
-                            ref.put(response);
+                            ref.put(response); //the api call that uploads the img to firebase
                         });
                     }
                     catch (err) {
@@ -51,6 +70,7 @@ export default function Upload() {
                             appearance: 'error',
                             autoDismiss: 'true',
                         });
+                        return;
                     }
                 }
                 addToast(`Success: ${values?.file?.length} ${values?.file?.length > 1 ? 'images' : 'image'} uploaded`, {
@@ -84,7 +104,7 @@ export default function Upload() {
                             <label className="mr-6 font-bold">Enter the date of the wedding</label>
                             <input type="date" name="date" {...register("date")} />
                             {showError ? (
-                                <div className="text-red-600">Wrong date entered or no files are attached</div>
+                                <div className="text-red-600"> {errorMessage ?? 'Wrong date entered or no files are attached'}</div>
                             ) : <></>}
                         </div>
                         <div className="pt-2">

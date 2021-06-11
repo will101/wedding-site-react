@@ -46,7 +46,7 @@ export default function UserGallery() {
 
     return (
         <Container bgImage={image}>
-            <h1 className="text-black text-5xl pt-2 mb-6 font-fatface">Images users have uploaded</h1>
+            <h1 className="text-black text-5xl pt-2 mb-6 font-fatface">User uploaded images</h1>
             {showLoadingGif ? (
                 <div className='bg-gray-200 font-roboto-condensed font-semibold text-2xl mx-auto w-60'>
                     <div className="mx-auto"><img alt="" className='w-auto h-24' src={gif} />
